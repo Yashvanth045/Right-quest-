@@ -1,0 +1,82 @@
+{
+  "id": "citizen_participation",
+  "title": "Your Voice, Your Vote",
+  "category": "Citizen Rights",
+  "description": "A new policy is being discussed in your town. Explore how citizens can participate responsibly.",
+  "start_node": "begin",
+  "nodes": {
+    "begin": {
+      "text": "Your local council is proposing a new policy that affects your neighborhood. What is a constructive first step?",
+      "choices": [
+        {
+          "id": "read_proposal",
+          "text": "Read the official proposal and any published meeting notes.",
+          "next_node": "public_meeting",
+          "points": 10,
+          "feedback": "Great start. Understanding a proposal helps you participate meaningfully."
+        },
+        {
+          "id": "spread_rumor",
+          "text": "Share an unverified rumor about the proposal online.",
+          "next_node": "bad_choice",
+          "points": 0,
+          "feedback": "Spreading unverified information can mislead others and weaken public debate."
+        }
+      ]
+    },
+    "public_meeting": {
+      "text": "A public consultation meeting is scheduled. How do you participate?",
+      "choices": [
+        {
+          "id": "attend_and_comment",
+          "text": "Attend and share your feedback respectfully during the comment period.",
+          "next_node": "voting",
+          "points": 10,
+          "feedback": "Excellent. Respectful, informed participation strengthens democratic processes."
+        },
+        {
+          "id": "disrupt",
+          "text": "Disrupt the meeting to prevent others from speaking.",
+          "next_node": "bad_choice",
+          "points": 0,
+          "feedback": "Disrupting a meeting can silence other citizens' right to be heard."
+        }
+      ]
+    },
+    "voting": {
+      "text": "The policy is later put to a local vote. What should you do?",
+      "choices": [
+        {
+          "id": "vote_informed",
+          "text": "Vote after considering the information you have gathered.",
+          "next_node": "finish",
+          "points": 15,
+          "feedback": "Voting is one of the most direct ways citizens shape their community."
+        },
+        {
+          "id": "skip_vote",
+          "text": "Skip voting entirely without any particular reason.",
+          "next_node": "finish",
+          "points": 0,
+          "feedback": "Voting is a right -- using it, when you are able to, helps your voice count."
+        }
+      ]
+    },
+    "bad_choice": {
+      "text": "This path could undermine fair, informed civic participation. Let's try again.",
+      "choices": [
+        {
+          "id": "restart",
+          "text": "Start again and engage constructively.",
+          "next_node": "begin",
+          "points": 0,
+          "feedback": "Constructive participation benefits the whole community."
+        }
+      ]
+    },
+    "finish": {
+      "text": "Scenario complete. Citizen rights work best when paired with informed, respectful participation in public life.",
+      "choices": []
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "id": "consumer_refund",
+  "title": "The Missing Refund",
+  "category": "Consumer Rights",
+  "start_node": "begin",
+  "nodes": {
+    "begin": {
+      "text": "A shop promised a refund but has not paid you. What should you do?",
+      "choices": [
+        {
+          "id": "evidence",
+          "text": "Collect the receipt and written messages.",
+          "next_node": "contact_seller",
+          "points": 10,
+          "feedback": "Good decision. Evidence can support your complaint."
+        },
+        {
+          "id": "ignore",
+          "text": "Ignore the issue.",
+          "next_node": "finish",
+          "points": 0,
+          "feedback": "Ignoring the issue may reduce your chance of resolving it."
+        }
+      ]
+    },
+    "contact_seller": {
+      "text": "How should you contact the seller?",
+      "choices": [
+        {
+          "id": "written_complaint",
+          "text": "Send a clear written complaint.",
+          "next_node": "finish",
+          "points": 10,
+          "feedback": "A written complaint creates a useful record."
+        }
+      ]
+    },
+    "finish": {
+      "text": "Scenario completed.",
+      "choices": []
+    }
+  }
+}

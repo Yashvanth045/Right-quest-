@@ -1,0 +1,82 @@
+{
+  "id": "digital_rights_it_act",
+  "title": "The Phishing Message",
+  "category": "Digital Rights",
+  "description": "You receive a suspicious message asking for your bank OTP. Explore your digital rights and duties under India's Information Technology Act, 2000.",
+  "start_node": "begin",
+  "nodes": {
+    "begin": {
+      "text": "You get a text message claiming to be from your bank, asking you to click a link and enter your OTP to 'verify your account'. What do you do first?",
+      "choices": [
+        {
+          "id": "verify_sender",
+          "text": "Do not click the link. Check the sender and contact your bank directly through its official number.",
+          "next_node": "consider_reporting",
+          "points": 15,
+          "feedback": "Good instinct. Under Section 66D of the IT Act, cheating by personation using a computer resource -- like a fake bank message -- is a punishable offence. Verifying independently protects you from it."
+        },
+        {
+          "id": "enter_otp",
+          "text": "Click the link and enter the OTP since it looks urgent.",
+          "next_node": "bad_choice",
+          "points": 0,
+          "feedback": "Sharing an OTP this way can lead to identity theft, which Section 66C of the IT Act specifically penalises -- but prevention is safer than any legal remedy after the fact."
+        }
+      ]
+    },
+    "bad_choice": {
+      "text": "Entering the OTP allowed someone to access your account without authorisation -- an offence under Section 43 and Section 66 of the IT Act. Let's see how you can respond now.",
+      "choices": [
+        {
+          "id": "retry",
+          "text": "Learn from this and start again with a safer first move.",
+          "next_node": "begin",
+          "points": 0,
+          "feedback": "Recognising the mistake quickly is the right instinct -- the next node covers how to report it."
+        }
+      ]
+    },
+    "consider_reporting": {
+      "text": "You suspect the message was a phishing attempt. What's the right way to report it?",
+      "choices": [
+        {
+          "id": "cybercrime_portal",
+          "text": "Report it on the National Cyber Crime Reporting Portal (cybercrime.gov.in) or call the 1930 helpline.",
+          "next_node": "data_rights",
+          "points": 15,
+          "feedback": "Correct. India's Computer Emergency Response Team (CERT-In), set up under Section 70B of the IT Act, coordinates the national response to exactly this kind of incident."
+        },
+        {
+          "id": "do_nothing",
+          "text": "Delete the message and don't report it, since no money was lost.",
+          "next_node": "data_rights",
+          "points": 5,
+          "feedback": "Reporting unsuccessful attempts still helps -- it feeds into national cyber-threat intelligence, even when you personally weren't harmed."
+        }
+      ]
+    },
+    "data_rights": {
+      "text": "A few weeks later, a company you'd shared personal data with suffers a data breach through negligence on their part. What right protects you here?",
+      "choices": [
+        {
+          "id": "compensation_43a",
+          "text": "You can claim compensation, since the company was negligent in protecting your data.",
+          "next_node": "finish",
+          "points": 15,
+          "feedback": "Correct. Section 43A of the IT Act makes a body corporate liable to pay compensation if it negligently fails to maintain reasonable security practices for sensitive personal data it holds."
+        },
+        {
+          "id": "nothing_can_be_done",
+          "text": "Nothing can be done since you agreed to their terms and conditions.",
+          "next_node": "finish",
+          "points": 0,
+          "feedback": "Agreeing to terms of service doesn't remove a company's legal duty to protect your data with reasonable security practices under Section 43A."
+        }
+      ]
+    },
+    "finish": {
+      "text": "Scenario complete. Digital rights come with digital responsibilities: verify before you trust, report what you can't verify, and know that Indian law -- via the IT Act, 2000 -- gives you real recourse against identity theft, phishing, and data negligence.",
+      "choices": []
+    }
+  }
+}

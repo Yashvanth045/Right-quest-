@@ -1,0 +1,63 @@
+{
+  "id": "fundamental_rights",
+  "title": "Equal Treatment at Work",
+  "category": "Fundamental Rights",
+  "description": "A coworker is being treated unfairly. Explore how fundamental rights principles apply.",
+  "start_node": "begin",
+  "nodes": {
+    "begin": {
+      "text": "You notice a coworker is being excluded from meetings because of their background. What is a thoughtful first step?",
+      "choices": [
+        {
+          "id": "note_details",
+          "text": "Note specific dates and examples of what you observed.",
+          "next_node": "raise_concern",
+          "points": 10,
+          "feedback": "Good approach. Specific, factual observations are more useful than vague impressions."
+        },
+        {
+          "id": "ignore_it",
+          "text": "Ignore it since it does not directly involve you.",
+          "next_node": "bad_choice",
+          "points": 0,
+          "feedback": "Fundamental rights, like equal treatment, are strengthened when everyone stays attentive."
+        }
+      ]
+    },
+    "raise_concern": {
+      "text": "How should you raise this concern?",
+      "choices": [
+        {
+          "id": "hr_report",
+          "text": "Report it through the appropriate HR or organizational channel.",
+          "next_node": "finish",
+          "points": 15,
+          "feedback": "Well done. Formal channels exist to address equality concerns fairly and consistently."
+        },
+        {
+          "id": "public_shame",
+          "text": "Publicly shame the individuals involved without any formal process.",
+          "next_node": "bad_choice",
+          "points": 0,
+          "feedback": "Public shaming can escalate conflict and may bypass fair process for everyone involved."
+        }
+      ]
+    },
+    "bad_choice": {
+      "text": "This path may not lead to a fair resolution. Let's try a more constructive approach.",
+      "choices": [
+        {
+          "id": "restart",
+          "text": "Start again with a fact-based approach.",
+          "next_node": "begin",
+          "points": 0,
+          "feedback": "Fact-based, respectful action tends to protect everyone's rights better."
+        }
+      ]
+    },
+    "finish": {
+      "text": "Scenario complete. Equal treatment is a cornerstone fundamental right -- raising concerns through fair, factual channels helps uphold it for everyone.",
+      "choices": []
+    }
+  }
+}
