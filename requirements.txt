@@ -11,3 +11,4 @@ celery==5.4.0
 redis==5.2.1
 gunicorn==23.0.0
 pytest==8.3.5
+requests
