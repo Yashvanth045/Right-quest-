@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero p-5 mb-4">
+    <h1>Learn your rights through play.</h1>
+    <p class="lead">
+        Build knowledge about fundamental rights, citizen rights
+        and consumer rights.
+    </p>
+</section>
+
+<div class="row g-3 mb-4">
+    <div class="col-md-4">
+        <div class="stat">
+            <small>Points</small>
+            <h2>{{ current_user.points }}</h2>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="stat">
+            <small>Level</small>
+            <h2>{{ current_user.level }}</h2>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="stat">
+            <small>Learning streak</small>
+            <h2>{{ current_user.streak }} days</h2>
+        </div>
+    </div>
+</div>
+
+<div class="row g-4">
+    <div class="col-md-4">
+        <div class="card shadow p-4">
+            <h3>Weekly Quiz</h3>
+            <p>Test your rights knowledge.</p>
+            <a class="btn btn-primary" href="{{ url_for('quiz.get_quiz') }}">
+                Start Quiz
+            </a>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card shadow p-4">
+            <h3>Branching Scenario</h3>
+            <p>Make decisions in a consumer complaint.</p>
+            <a
+                class="btn btn-success"
+                
+            href="{{ url_for('scenario.scenario_page', scenario_id='consumer_refund') }}"
+                Play Scenario
+            </a>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card shadow p-4">
+            <h3>Rights Games</h3>
+            <p>Play games and earn points.</p>
+            <a class="btn btn-warning" href="{{ url_for('game.games_page') }}">
+                Play Games
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="card shadow p-4 mt-4">
+    <h3>Recent Quiz Attempts</h3>
+
+    {% if attempts %}
+        <ul class="list-group">
+            {% for attempt in attempts %}
+            <li class="list-group-item d-flex justify-content-between">
+                <span>{{ attempt.category }}</span>
+                <strong>
+                    {{ attempt.score }}/{{ attempt.total_questions }}
+                    — {{ attempt.points_earned }} points
+                </strong>
+            </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No quiz attempts yet.</p>
+    {% endif %}
+</div>
+{% endblock %}

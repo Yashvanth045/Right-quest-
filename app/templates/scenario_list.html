@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Scenarios -- RightsQuest{% endblock %}
+{% block content %}
+<h2 class="mb-3">Branching rights scenarios</h2>
+
+<div class="row g-3">
+  {% for s in scenarios %}
+    <div class="col-md-4">
+      <a href="{{ url_for('scenario.scenario_page', scenario_id=s.id) }}" class="text-decoration-none text-reset">
+        <div class="card rq-card h-100 p-3">
+          <span class="tag">{{ s.category }}</span>
+          <h4>{{ s.title }}</h4>
+          <p class="text-muted">{{ s.description }}</p>
+        </div>
+      </a>
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}

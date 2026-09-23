@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card shadow p-4">
+    <h1>Rights Quiz</h1>
+    <p class="text-muted">
+        Educational content only, grounded in real source material. Laws differ by country.
+    </p>
+
+    <div class="d-flex gap-2 align-items-center mb-3 flex-wrap">
+        <select class="form-select" id="categorySelect" style="max-width: 260px;">
+            <option value="">All categories</option>
+            {% for category in categories %}
+            <option value="{{ category }}">{{ category }}</option>
+            {% endfor %}
+        </select>
+
+        <button class="btn btn-outline-primary" id="weeklyBtn" type="button">
+            Weekly Quiz
+        </button>
+    </div>
+
+    <div id="quizContainer"></div>
+
+    <button class="btn btn-primary mt-3" id="submitQuizBtn" type="button">
+        Submit Quiz
+    </button>
+
+    <div id="quizResult" class="mt-4"></div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='css/js/quiz.js') }}"></script>
+{% endblock %}

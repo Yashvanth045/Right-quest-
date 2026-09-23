@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card shadow p-4 mb-4">
+    <h1>Admin Content Management</h1>
+
+    <form method="post">
+        <div class="row g-3">
+            <div class="col-md-5">
+                <label class="form-label">Category</label>
+                <select class="form-select" name="category">
+                    <option>Fundamental Rights</option>
+                    <option>Citizen Rights</option>
+                    <option>Consumer Rights</option>
+                    <option>Mixed Rights</option>
+                </select>
+            </div>
+
+            <div class="col-md-4">
+                <label class="form-label">Country</label>
+                <input
+                    class="form-control"
+                    name="country"
+                    value="General"
+                >
+            </div>
+
+            <div class="col-md-3">
+                <label class="form-label">Number</label>
+                <input
+                    class="form-control"
+                    name="count"
+                    type="number"
+                    min="1"
+                    max="20"
+                    value="5"
+                >
+            </div>
+        </div>
+
+        <button class="btn btn-primary mt-3">
+            Generate AI Questions
+        </button>
+    </form>
+</div>
+
+<div class="card shadow p-4">
+    <h2>Questions Awaiting Review</h2>
+
+    {% if pending %}
+        {% for question in pending %}
+        <div class="border-bottom py-3">
+            <h5>{{ question.question }}</h5>
+            <p>{{ question.explanation }}</p>
+            <small>
+                Category: {{ question.category }} |
+                Country: {{ question.country }}
+            </small>
+
+            <form
+                method="post"
+                action="{{ url_for(
+                    'approve_question',
+                    question_id=question.id
+                ) }}"
+            >
+                <button class="btn btn-success btn-sm mt-2">
+                    Approve and Publish
+                </button>
+            </form>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p>No questions awaiting review.</p>
+    {% endif %}
+</div>
+{% endblock %}

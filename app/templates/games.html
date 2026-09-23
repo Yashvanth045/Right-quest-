@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="mb-4">Rights Games</h1>
+
+<ul class="nav nav-pills mb-4" id="gameTabs">
+    <li class="nav-item">
+        <button class="nav-link active" data-tab="sl" type="button">
+            🐍 Snakes &amp; Ladders
+        </button>
+    </li>
+    <li class="nav-item">
+        <button class="nav-link" data-tab="rom" type="button">
+            🧠 Real or Myth
+        </button>
+    </li>
+    <li class="nav-item">
+        <button class="nav-link" data-tab="th" type="button">
+            🗺️ Treasure Hunt
+        </button>
+    </li>
+</ul>
+
+<!-- ---------------- Snakes & Ladders ---------------- -->
+<div class="game-panel" id="panel-sl">
+    <div class="card shadow p-4">
+        <h2>Rights Snakes and Ladders</h2>
+        <p class="text-muted">Answer the question correctly to earn your dice roll.</p>
+
+        <div class="row g-3">
+            <div class="col-lg-7">
+                <div id="slBoard" class="sl-board" aria-label="Snakes and Ladders board"></div>
+                <div class="small text-muted mt-2">🐍 Snake • 🪜 Ladder • Colored circles are players</div>
+            </div>
+            <div class="col-lg-5">
+                <div class="border rounded-3 p-3 mb-3 bg-light">
+                    <h5>👥 Multiplayer</h5>
+                    <p class="small text-muted">Create a room and share the 6-character code with your friends. Up to 4 players.</p>
+                    <div class="input-group mb-2">
+                        <input id="slRoomCode" class="form-control" placeholder="Room code">
+                        <button class="btn btn-outline-primary" id="slJoinBtn" type="button">Join</button>
+                    </div>
+                    <div class="d-flex gap-2 flex-wrap">
+                        <button class="btn btn-primary" id="slCreateBtn" type="button">Create Room</button>
+                        <button class="btn btn-success" id="slStartBtn" type="button" disabled>Start Game</button>
+                        <button class="btn btn-outline-danger" id="slRestartBtn" type="button" disabled>🔄 Restart Game</button>
+                    </div>
+                    <div id="slRoomInfo" class="mt-2"></div>
+                </div>
+
+                <p>Current position: <strong id="slPiece">1</strong>/100</p>
+                <div id="slTurn" class="alert alert-info">Create or join a multiplayer room.</div>
+                <div id="slQuestion" class="mb-3"></div>
+                <div id="slResult" class="mt-3"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ---------------- Real or Myth ---------------- -->
+<div class="game-panel d-none" id="panel-rom">
+    <div class="card shadow p-4">
+        <h2>Real or Myth</h2>
+
+        <p id="romStatement">Loading statement...</p>
+
+        <button class="btn btn-success" id="romRealBtn" type="button">
+            Real
+        </button>
+        <button class="btn btn-danger" id="romMythBtn" type="button">
+            Myth
+        </button>
+
+        <div id="romResult" class="mt-3"></div>
+    </div>
+</div>
+
+<!-- ---------------- Treasure Hunt ---------------- -->
+<div class="game-panel d-none" id="panel-th">
+    <div class="card shadow p-4">
+        <h2>Treasure Hunt</h2>
+
+        <p id="thRiddle">Loading clue...</p>
+
+        <button class="btn btn-outline-secondary btn-sm" id="thHintBtn" type="button">
+            Show Hint
+        </button>
+
+        <div class="input-group mt-3">
+            <input
+                type="text"
+                class="form-control"
+                id="thAnswer"
+                placeholder="Your answer"
+            >
+            <button class="btn btn-primary" id="thSubmitBtn" type="button">
+                Submit
+            </button>
+        </div>
+
+        <div id="thResult" class="mt-3"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='css/js/games.js') }}"></script>
+{% endblock %}

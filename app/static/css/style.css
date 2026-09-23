@@ -1,0 +1,136 @@
+:root {
+  --rq-purple: #5b4de8;
+  --rq-purple-dark: #312e81;
+}
+
+body {
+  background: #f5f7fb;
+  color: #172033;
+}
+
+.rq-navbar {
+  background: linear-gradient(135deg, var(--rq-purple-dark), var(--rq-purple));
+}
+
+.hero {
+  background: linear-gradient(135deg, var(--rq-purple-dark), var(--rq-purple));
+}
+
+.hero-icon {
+  font-size: 5rem;
+}
+
+.eyebrow, .tag {
+  color: #c9c5ff;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.rq-card .tag {
+  color: #7165ec;
+}
+
+.rq-card {
+  border: 1px solid #e6e8f0;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(30, 40, 80, 0.05);
+}
+
+.stat-card {
+  background: white;
+  border: 1px solid #e6e8f0;
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.stat-card span { color: #757b8c; }
+.stat-card strong { color: var(--rq-purple); font-size: 2rem; }
+
+.scenario-choice { cursor: pointer; transition: transform 0.15s ease; }
+.scenario-choice:hover { transform: translateY(-3px); }
+
+.feedback {
+  padding: 12px 16px;
+  border-radius: 10px;
+  background: #fff6da;
+  color: #795900;
+}
+
+.question {
+  padding: 16px 0;
+  border-bottom: 1px solid #eceef5;
+}
+
+.option {
+  display: block;
+  margin: 8px 0;
+  padding: 10px;
+  border-radius: 10px;
+  background: #f8f9fd;
+  cursor: pointer;
+}
+
+.option:hover { background: #eeedff; }
+
+.board-visual {
+  width: 90px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  background: #f1f0ff;
+}
+
+.piece {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #ffda79;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+
+/* RightsQuest Snakes & Ladders board */
+.sl-board {
+  display: grid;
+  grid-template-columns: repeat(10, minmax(35px, 1fr));
+  grid-template-rows: repeat(10, minmax(35px, 1fr));
+  gap: 3px;
+  background: #31345b;
+  padding: 5px;
+  border-radius: 14px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+.sl-cell {
+  min-height: 58px;
+  background: #f8f9ff;
+  border-radius: 6px;
+  padding: 4px;
+  position: relative;
+  font-size: .72rem;
+  font-weight: 700;
+}
+.sl-cell:nth-child(even) { background: #eef0ff; }
+.sl-cell .marker {
+  display: inline-flex;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  align-items: center; justify-content: center;
+  color: #fff; font-size: .65rem;
+  margin: 1px;
+}
+.sl-cell .snake, .sl-cell .ladder {
+  position: absolute; right: 4px; bottom: 3px; font-size: 1rem;
+}
+@media (max-width: 600px) { .sl-cell { min-height: 36px; font-size: .58rem; } .sl-cell .marker { width: 17px; height: 17px; font-size: .55rem; } }

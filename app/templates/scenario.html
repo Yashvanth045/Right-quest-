@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card shadow p-4">
+    <span class="badge bg-primary mb-3">
+        {{ scenario.category }}
+    </span>
+
+    <h1>{{ scenario.title }}</h1>
+
+    {% if feedback %}
+    <div class="alert alert-warning">
+        {{ feedback }}
+    </div>
+    {% endif %}
+
+    <div class="alert alert-info">
+        {{ node.text }}
+    </div>
+
+    {% if node.choices %}
+    <form method="post">
+        <input
+            type="hidden"
+            name="node_id"
+            value="{{ node_id }}"
+        >
+
+        {% for choice in node.choices %}
+        <button
+            class="btn btn-outline-primary w-100 text-start mb-2"
+            name="choice_id"
+            value="{{ choice.id }}"
+        >
+            {{ choice.text }}
+        </button>
+        {% endfor %}
+    </form>
+    {% else %}
+    <a
+        class="btn btn-primary"
+        href="{{ url_for('dashboard.index') }}"
+    >
+        Return to Dashboard
+    </a>
+    {% endif %}
+</div>
+{% endblock %}
