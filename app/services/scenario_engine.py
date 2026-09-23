@@ -2,7 +2,7 @@ import json
 from pathlib import Path
 
 
-SCENARIO_DIRECTORY = Path(__file__).resolve().parent.parent.parent / "scenarios
+SCENARIO_DIRECTORY = Path(__file__).resolve().parent.parent.parent / "scenarios"
 
 
 class ScenarioNotFoundError(Exception):
